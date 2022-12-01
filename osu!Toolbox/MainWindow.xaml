@@ -1,0 +1,53 @@
+﻿<Window x:Class="osu_Toolbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:osu_toolbox="clr-namespace:osu_Toolbox"
+        mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="600" Width="400"  MinHeight="600" MinWidth="400">
+    <materialDesign:DialogHost Name="DialogHost_Main">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <materialDesign:ColorZone Mode="Standard" Grid.Row="0" MouseLeftButtonDown="Drag">
+                <DockPanel Margin="5">
+                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignHeadline6TextBlock}">osu!Toolbox</TextBlock>
+                    <DockPanel HorizontalAlignment="Left">
+                        <Button Height="30" Width="30" Padding="0" Style="{StaticResource MaterialDesignFlatButton}" Click="GoHome">
+                            <materialDesign:PackIcon Kind="Home" />
+                        </Button>
+                        <Button Height="30" Width="30" Padding="0" Style="{StaticResource MaterialDesignFlatButton}" Click="GoCollection" Cursor="Hand">
+                            <materialDesign:PackIcon Kind="Bookmark" />
+                        </Button>
+                        <Button Height="30" Width="30" Padding="0" Style="{StaticResource MaterialDesignFlatButton}" Click="GoDownload">
+                            <materialDesign:PackIcon Kind="Download" />
+                        </Button>
+                    </DockPanel>
+                    <DockPanel HorizontalAlignment="Right">
+                        <Button Height="30" Width="30" Padding="0" Style="{StaticResource MaterialDesignFlatButton}" Click="Minimize">
+                            <materialDesign:PackIcon Kind="WindowMinimize" />
+                        </Button>
+                        <Button Margin="10 0 0 0" Height="30" Width="30" Padding="0" Style="{StaticResource MaterialDesignFlatButton}" Click="Close">
+                            <materialDesign:PackIcon Kind="WindowClose" />
+                        </Button>
+                    </DockPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+            <materialDesign:Transitioner x:Name="Transitioner_Main"  SelectedIndex="0" Grid.Row="1">
+                <materialDesign:TransitionerSlide>
+                </materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide>
+                    <osu_toolbox:CollectionManager x:Name="CollectionManager"></osu_toolbox:CollectionManager>
+                </materialDesign:TransitionerSlide>
+                <materialDesign:TransitionerSlide>
+                    <osu_toolbox:DownloadManager x:Name="DownloadManager"></osu_toolbox:DownloadManager>
+                </materialDesign:TransitionerSlide>
+            </materialDesign:Transitioner>
+            <materialDesign:Snackbar Grid.Row="2" MessageQueue="{materialDesign:MessageQueue}" x:Name="Snackbar_Main" />
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>

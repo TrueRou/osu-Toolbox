@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="osu_Toolbox.Elements.Import.JsonImport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:root="clr-namespace:osu_Toolbox"
+             mc:Ignorable="d">
+    <StackPanel Grid.Row="0" Margin="10">
+        <TreeView MinWidth="300" MaxHeight="350" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" Name="TreeView_Main" ItemsSource="{Binding Path=BeatmapNodes}">
+            <TreeView.Resources>
+                <DataTemplate DataType="{x:Type root:BeatmapNode}">
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock FontSize="14" FontWeight="Bold" Text="{Binding Title}"></TextBlock>
+                            <TextBlock FontSize="12" Text="{Binding Difficulty}"></TextBlock>
+                            <TextBlock FontSize="12" Text="{Binding Label}"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,15,0">
+            <Button Height="35" Width="50" FontSize="18" Padding="4"  IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" Click="Button_Cancel_Click">
+                取消
+            </Button>
+            <Button Height="35" Width="50" FontSize="18" Padding="4" IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}" Cursor="Hand" Click="Button_Build_Click">
+                导入
+            </Button>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>

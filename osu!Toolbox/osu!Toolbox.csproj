@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>osu_Toolbox</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\osu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Coosu.Database" Version="2.3.27" />
+    <PackageReference Include="Downloader" Version="3.0.1" />
+    <PackageReference Include="FolderBrowserEx" Version="1.0.1" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.0-ci374" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.7.0-ci374" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="OsuParsers" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\osu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Elements\TextBlockDialog.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

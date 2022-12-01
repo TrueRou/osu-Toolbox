@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="osu_Toolbox.Elements.MapCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+    <materialDesign:Card Margin="2" Height="200" Width="180">
+        <StackPanel Margin="4">
+            <Grid Margin="0 0 0 22.5">
+                <Image Height="102" RenderOptions.BitmapScalingMode="HighQuality" UseLayoutRounding="True" Name="image" Stretch="UniformToFill"></Image>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="38" Height="38" Margin="0,0,2,-19.5" Click="OpenLink_Button" Cursor="Hand">
+                    <materialDesign:PackIcon Kind="OpenInNew" Width="15" />
+                </Button>
+            </Grid>
+            <TextBlock Padding="2" FontWeight="Bold" Name="textName" FontSize="12" Style="{StaticResource MaterialDesignTextBlock}"></TextBlock>
+            <TextBlock Padding="2" FontSize="10" Style="{StaticResource MaterialDesignTextBlock}" x:Name="diffName"></TextBlock>
+            <Viewbox HorizontalAlignment="Left" Width="150">
+                <materialDesign:RatingBar x:Name="ratingBar" Value="5" Max="10" />
+            </Viewbox>
+            <ProgressBar Height="10" Margin="0 2 0 0" Name="bar"></ProgressBar>
+        </StackPanel>
+    </materialDesign:Card>
+</UserControl>
